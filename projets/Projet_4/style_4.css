@@ -1,0 +1,96 @@
+body{
+    font-size: 1em;    
+    text-align: justify;
+    background: linear-gradient( darkslateblue, #1CB5E0, rgb(255, 140, 0),rgb(236, 165, 165), silver);
+}
+header nav{
+    background-color:darkslateblue;
+    padding: 10px;
+}
+header h1{
+    text-align: center;
+    padding: 10px 0px;
+    color:greenyellow;
+}
+header ul{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 150px;
+    list-style-type: none;
+}
+header a{
+    color: white;
+    text-decoration: none;
+}
+.one{
+    display: flex;
+    justify-content: center;
+    margin: 0px 250px;
+}
+.one img{
+    width: 100%;
+    height: 300px;
+    margin-right: 50px;
+}
+.one p{
+    text-align: justify;
+    padding-top: 70px;
+}
+.sect1 h1, #sect2 h1, .sect3 h1, .sect4 h1, .sect5 h1{
+    text-align: center;
+    font-size: 2em;
+}
+.sect1{
+    background-color: rgba(0, 255, 255, 0.4);
+    padding-bottom: 40px;
+    border-top: 7px solid greenyellow;
+}
+#sect2{
+    background-color: rgba(255, 140, 0, 0.4);
+    padding-bottom: 40px;
+    border-top: 7px solid yellow;
+}
+.two, .three{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.four{
+    padding: 0px 50px;
+}
+.sect3{
+    background-color:skyblue;
+    border-top: 7px solid red;
+    padding: 0px 50px 48px 50px;
+}
+.sect3 ul{
+    display: flex;
+    justify-content: space-between;
+    list-style-type:square;
+}
+.sect4{
+    background-color: rgba(255, 0, 0,0.4);
+    border-top: 7px solid #663399;
+    padding: 0px 50px 10px 50px;
+}
+.sect4 img{
+    height: 250px;
+    width: 200px;
+}
+.sect4 img:hover{
+    box-shadow: 5px 5px 5px red;
+    width: 190px;
+    height: 230px;
+}
+.eight{
+    display: flex;
+    justify-content: space-between;
+}
+.five, .six, .seven{
+    width: 300px;
+}
+.sect5{
+    background-color: rgba(192, 192, 192, 0.4);
+    text-align: center;
+    padding: 20px 0px 10px 0px;
+}

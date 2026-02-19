@@ -1,0 +1,99 @@
+
+body{
+    background-color: rgb(223, 218, 218);
+    font-family: "Century", Verdana, sans-serif;
+}
+
+center h1{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(13, 172, 39);
+    font-size: 2.3em;
+}
+
+p{
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+h3{
+    font-size: 150%;
+}
+
+h1{
+    text-align: center;
+}
+
+header ul{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    
+}
+header ul li a{
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: normal;
+    font-style: oblique;
+    color: purple;
+    transition: 0.1s color 1s ease;
+}
+header a:hover{
+    color: rgb(199, 115, 12);
+}
+
+.sect1 img{
+    width: 100%;
+    height: 700px;
+}
+#ancre1, #ancre2{
+    padding: 10px 0px 20px 0px;
+}
+
+.flex{
+    display: flex;
+    text-align: justify;
+    padding: 10px 0px 25px 0px;
+}
+.flex div{
+    align-content: center;
+}
+.flex img{
+    width: 50%;
+}
+
+.flex h2, .flex p{
+    padding-left: 30px;
+}
+.flex2{
+    display: flex;
+    gap: 20px;
+}
+.flex2 img{
+    width: 430px;
+    height: 400px;
+}
+
+.horizontal{
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    background-color: rgb(194, 174, 97);
+}
+
+button{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}
+
+footer{
+    display: flex;
+    text-align: justify;
+    justify-content: end;
+    gap: 100px;
+    background-color: rgb(194, 174, 97);
+}
+
+.droki{
+    width: 300px;
+}

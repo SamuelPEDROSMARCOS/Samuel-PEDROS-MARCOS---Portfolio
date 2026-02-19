@@ -1,0 +1,497 @@
+/* ==============================================
+   STYLES GÉNÉRAUX & RÉINITIALISATION
+   ============================================== */
+
+body {
+    background-color: #0F172A;       /* Fond bleu nuit profond */
+    color: #F8FAFC;                  /* Texte blanc cassé */
+    text-align: justify;             /* Justification du texte */
+    font-size: 1.2em;                /* Taille de police augmentée */
+}
+
+/* ==============================================
+   HEADER & NAVIGATION
+   ============================================== */
+
+/* Conteneur flex pour le titre du header */
+#flex_header_title {
+    display: flex;
+    justify-content: space-between;  /* Logo gauche, titre centre, logo droite */
+}
+
+/* Style des images dans le header */
+#flex_header_title img {
+    height: 70px;    /* Hauteur fixe */
+    width: 150px;    /* Largeur fixe */
+}
+
+/* Espacement spécifique pour le lien contact */
+.lien_contact {
+    padding-right: 45px;  /* Décale le lien contact vers la gauche */
+}
+
+/* Style principal du header */
+header {
+    padding-top: 20px;
+    padding-bottom: 7px;
+    background: linear-gradient(#3B82F6, #8B5CF6);  /* Dégradé bleu → violet */
+}
+
+/* Navigation horizontale */
+header ul {
+    list-style-type: none;           /* Supprime les puces */
+    display: flex;                    /* Alignement horizontal */
+    justify-content: space-between;   /* Répartition égale */
+}
+
+/* Style des liens de navigation */
+header ul a {
+    text-decoration: none;           /* Supprime le soulignement */
+    text-transform: uppercase;       /* Texte en majuscules */
+    color: #94A3B8;                  /* Couleur gris bleuté */
+    transition: color 0.3s ease;     /* Transition douce */
+}
+
+/* Effet au survol des liens */
+header ul a:hover {
+    color: #fff;                  /* Change en bleu électrique */
+}
+
+/* ==============================================
+   SECTION 1 : PRÉSENTATION (HÉROS)
+   ============================================== */
+
+/* Style commun des titres de toutes les sections */
+.sect1 h1, #sect2 h1, #sect3 h1, #sect4 h1, #sect5 h1, #sect6 h1 {
+    text-align: center;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    padding: 20px;
+    color: #F8FAFC;
+}
+
+/* Conteneur flex pour la section présentation */
+.one {
+    display: flex;                   /* Mise en page flexible */
+    margin: 0px 150px;               /* Marges horizontales */
+}
+
+/* Image dans la section présentation */
+.one img {
+    width: 300px;                   /* Largeur fixe */
+    height: auto;                   /* Hauteur proportionnelle */
+    margin-right: 50px;             /* Espace à droite de l'image */
+}
+
+/* Style des liens/buttons dans .one */
+.one a {
+    background: linear-gradient(#3B82F6, #8B5CF6);  /* Dégradé bleu → violet */
+    color: #94A3B8;                  /* Texte gris bleuté */
+    border-radius: 50px;             /* Bords arrondis */
+    text-decoration: none;           /* Pas de soulignement */
+    padding: 10px 20px;              /* Espacement interne */
+}
+
+/* Effet au survol des liens .one */
+.one a:hover {
+    background: #8B5CF6;             /* Fond violet */
+    color: #fff;                     /* Texte blanc */
+    border: 2px solid #3B82F6;       /* Bordure bleue */
+}
+
+/* Style spécifique de la section 1 */
+.sect1 {
+    background: linear-gradient(135deg, #0F172A 0%, #1A1B4B 50%, #0F172A 100%);
+    padding: 500px, 100px;           /* ⚠️ ERREUR: virgule au lieu d'espace */
+    padding-bottom: 60px;
+    padding-top: 0px;
+    border-top: 7px solid #1E293B;   /* Bordure supérieure */
+    box-shadow: rgba(0, 0, 0, 0.8);  /* Ombre portée */
+}
+
+/* ==============================================
+   SECTION 2 : FORMATION
+   ============================================== */
+
+#sect2 {
+    background: linear-gradient(135deg, #0F172A 0%, #1A1B4B 50%, #0F172A 100%);
+    padding-bottom: 40px;
+    border-top: 7px solid #334155;   /* Séparation avec section précédente */
+}
+
+/* Style des sous-titres dans sections 2 et 4 */
+#sect2 h4, #sect4 h4 {
+    text-transform: uppercase;       /* Texte en majuscules */
+}
+
+/* ==============================================
+   STYLES DES TABLEAUX (Formation & Compétences)
+   ============================================== */
+
+/* Première ligne des tableaux (en-têtes) */
+table tr:first-child {
+    background: rgba(59, 130, 246, 0.1);  /* Fond bleu très transparent */
+}
+
+/* Cellules des tableaux */
+table td {
+    border: 1px solid #334155;             /* Bordures gris foncé */
+    background: rgba(30, 41, 59, 0.3);     /* Fond semi-transparent */
+}
+
+/* Effet au survol des lignes */
+table tr:hover {
+    background: rgba(59, 130, 246, 0.05);  /* Légère surbrillance bleue */
+}
+
+/* ==============================================
+   SECTION 3 : PROJETS
+   ============================================== */
+
+#sect3 {
+    background: linear-gradient(135deg, #0F172A 0%, #1A1B4B 50%, #0F172A 100%);
+    border-top: 7px solid #334155;   /* Séparation */
+}
+
+/* Centrage des sous-titres projets */
+#sect3 h3 {
+    text-align: center;
+}
+
+/* Style des liens dans la section projets */
+#sect3 a {
+    background: linear-gradient(#3B82F6, #8B5CF6);  /* Dégradé */
+    color: #94A3B8;                  /* Texte gris bleuté */
+    border-radius: 50px;             /* Bords arrondis */
+    text-decoration: none;           /* Pas de soulignement */
+    padding: 10px 20px;              /* Espacement interne */
+}
+
+/* Effet au survol des liens projets */
+#sect3 a:hover {
+    background: #8B5CF6;             /* Fond violet */
+    color: #fff;                     /* Texte blanc */
+    border: 2px solid #3B82F6;       /* Bordure bleue */
+}
+
+/* ==============================================
+   LAYOUT DES PROJETS INDIVIDUELS
+   ============================================== */
+
+/* NOTE: Les classes .two à .eight suivent le même pattern:
+   - Conteneur flex
+   - Division texte/image
+   - Mêmes styles pour images et liens
+*/
+
+/* PROJET 1 : Gestion Hôtelière */
+.two {
+    display: flex;                   /* Layout flexible */
+}
+.two_div {
+    margin-left: 50px;               /* Marge à gauche du contenu */
+    margin-top: 50px;                /* Marge en haut */
+}
+.two_div a {
+    margin-left: 50px;               /* Décale le lien */
+}
+.two img {
+    width: 270px;                    /* Largeur spécifique */
+    height: auto;                    /* Hauteur proportionnelle */
+    padding-bottom: 10px;            /* Espace sous l'image */
+}
+
+/* PROJET 2 : AzerType (JavaScript) */
+.three {
+    display: flex;
+}
+.three_div {
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.three_div a {
+    margin-left: 110px;              /* Marge plus importante */
+}
+.three img {
+    width: 400px;                    /* Largeur différente des autres */
+    height: auto;
+    padding-bottom: 10px;
+}
+
+/* PROJET 3 : Automatisation Scolaire */
+.four {
+    display: flex;
+}
+.four_div {
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.four_div a {
+    margin-left: 110px;
+}
+.four img {
+    width: 400px;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+/* PROJET 4 : Gestion de Stock */
+.five {
+    display: flex;
+}
+.five_div {
+    margin-left: 50px;
+    margin-top: 40px;
+}
+.five_div a {
+    margin-left: 110px;
+}
+.five img {
+    width: 400px;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+/* PROJET 5 : Design CHIPS MANIOC+ */
+.six {
+    display: flex;
+}
+.six_div {
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.six_div a {
+    margin-left: 110px;
+}
+.six img {
+    width: 400px;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+/* PROJET 6 : (Non spécifié - classe .seven inutilisée?) */
+.seven {
+    display: flex;
+}
+.seven_div {
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.seven_div a {
+    margin-left: 120px;              /* Marge légèrement différente */
+}
+.seven img {
+    width: 400px;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+/* PROJET 7 : Sites Web Responsives */
+.eight {
+    display: flex;
+}
+.eight_div {
+    margin-left: 50px;
+    margin-top: 10px;                /* Marge plus petite */
+}
+.eight_div a {
+    margin-left: 120px;
+}
+/* Conteneurs pour les images de sites web */
+.div1, .div2, .div3 {
+    margin-bottom: 40px;             /* Espace vertical entre les images */
+}
+.eight img {
+    width: 400px;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+/* ==============================================
+   SECTION 4 : COMPÉTENCES
+   ============================================== */
+
+#sect4 {
+    background: linear-gradient(135deg, #0F172A 0%, #1A1B4B 50%, #0F172A 100%);
+    border-top: 7px solid #334155;   /* Séparation */
+    padding: 0px 50px 50px 50px;     /* Padding: haut droite bas gauche */
+}
+
+/* ==============================================
+   SECTION 5 : EXPÉRIENCE PROFESSIONNELLE
+   ============================================== */
+
+#sect5 {
+    background: linear-gradient(135deg, #0F172A 0%, #1A1B4B 50%, #0F172A 100%);
+    border-top: 7px solid #334155;   /* Séparation */
+}
+
+/* Image dans la section expérience */
+.sect5_div img {
+    margin-left: 50px;
+    margin-top: 30px;
+    width: 400px;                    /* Largeur fixe */
+    height: 490px;                   /* Hauteur fixe (différente) */
+    padding-bottom: 10px;
+}
+
+/* Conteneur flex pour la section expérience */
+.sect5_div {
+    display: flex;
+    justify-content: space-between;  /* Texte à gauche, image à droite */
+}
+
+/* ==============================================
+   SECTION 6 : CONTACT & FOOTER
+   ============================================== */
+
+#sect6 {
+    border-top: 7px solid #334155;   /* Séparation avec section précédente */
+}
+
+/* Layout principal du footer */
+.ten {
+    display: flex;
+    justify-content: space-between;  /* Formulaire gauche, infos droite */
+}
+
+/* Section droite du footer */
+.eleven {
+    padding-top: 30px;
+    padding-right: 30px;       /* Décale du formulaire */
+}
+
+/* Navigation secondaire dans le footer */
+.eleven nav ul {
+    display: flex;                   /* Navigation horizontale */
+    list-style-type: none;           /* Pas de puces */
+    gap: 20px;                       /* Espace entre les liens */
+}
+
+/* Liens de la navigation footer */
+.eleven nav a {
+    color: #94A3B8;                  /* Couleur gris bleuté */
+}
+
+/* Style des éléments de liste dans .eleven_div */
+.eleven_div li {
+    color: #94A3B8;                  /* Texte gris bleuté */
+}
+
+/* Effets au survol des liens footer */
+.eleven_network_link a:hover, 
+.eleven_div a:hover, 
+.eleven nav a:hover {
+    color: #3B82F6;                  /* Change en bleu électrique */
+    text-decoration: none; 
+}
+
+/* Layout pour les coordonnées et réseaux */
+.eleven_div {
+    display: flex;
+    justify-content: space-between;  /* Coordonnées à gauche, réseaux à droite */
+}
+
+/* Liste des réseaux sociaux */
+.eleven_network_link ul {
+    list-style-type: none;           /* Pas de puces */
+}
+
+/* Style des liens réseaux et coordonnées */
+.eleven_network_link a, 
+.eleven_div a {
+    text-decoration: none;           /* Pas de soulignement */
+    color: #94A3B8;                  /* Couleur gris bleuté */
+}
+
+/* Espacement spécifique pour les liens réseaux */
+.eleven_network_link a {
+    margin-right: 30px;              /* Espace entre les liens */
+}
+
+/* ==============================================
+   FORMULAIRE DE CONTACT
+   ============================================== */
+form{
+    padding-left: 40px;
+}
+
+.field1 {
+    width: 440px;                    /* Largeur fixe */
+    padding: 20px;                   /* Espacement interne */
+    margin-top: 10px;                /* Marge en haut */
+    border: 2px solid #334155;       /* Bordure gris foncé */
+    background: rgba(30, 41, 59, 0.5); /* Fond semi-transparent */
+}
+
+/* Légende du formulaire */
+legend {
+    font-weight: bold;               /* Texte en gras */
+    font-size: 16px;                 /* Taille spécifique */
+}
+
+/* Styles spécifiques pour les inputs */
+.field1 div input {
+    width: 200px;           /* Largeur réduite pour inputs */
+    height: 20px;           /* Hauteur réduite */
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #1E293B;
+    border: 1px solid #334155;
+    color: #F8FAFC;
+}
+
+/* Styles spécifiques pour textarea */
+textarea {
+    width: 420px;           /* Largeur complète du fieldset - padding */
+    height: 100px;          /* Hauteur suffisante pour écrire */
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #1E293B;
+    border: 1px solid #334155;
+    color: #F8FAFC;
+    resize: vertical;       /* Permet redimensionnement vertical seulement */
+}
+/* État focus pour les champs */
+.field1 div input:focus,
+textarea:focus {
+    border-color: #3B82F6;           /* Bordure bleue */
+    outline: none;                   /* Supprime l'outline par défaut */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2); /* Ombre bleue subtile */
+}
+
+/* Effet au survol des champs */
+.field1 div input:hover,
+textarea:hover {
+    border: 3px solid #334155;       /* Bordure plus épaisse */
+}
+
+/* Bouton d'envoi */
+input[type="submit"] {
+    background: linear-gradient(90deg, #3B82F6, #8B5CF6); /* Dégradé horizontal */
+    color: #F8FAFC;                  /* Texte blanc cassé */
+    padding: 10px;                   /* Espacement interne */
+    font-weight: bold;               /* Texte en gras */
+    text-transform: uppercase;       /* Texte en majuscules */
+    border: none;                    /* Pas de bordure */
+    border-radius: 100px;            /* Bords très arrondis */
+}
+
+/* Effet au survol du bouton */
+input[type="submit"]:hover {
+    background: linear-gradient(90deg, #4D90F8, #9A6EF8); /* Dégradé plus clair */
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4); /* Ombre bleue */
+}
+
+/* ==============================================
+   COPYRIGHT & MENTIONS
+   ============================================== */
+
+.copyright {
+    color: #64748B;                  /* Gris discret */
+    padding: 10px;                   /* Espacement interne */
+    margin-top: 30px;                /* Marge au-dessus */
+    background: rgba(2, 6, 23, 0.8); /* Fond noir bleuté transparent */
+}

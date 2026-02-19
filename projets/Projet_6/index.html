@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice Scientifique</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="screen">
+                <!-- HISTORIQUE -->
+                <div class="history" id="history"></div>
+                
+                <!-- Écran principal -->
+                <div class="display-container">
+                    <input type="text" id="display" readonly placeholder="0">
+                </div>
+            </div>
+            
+            <!-- Mode scientifique (toggle) -->
+            <div class="mode-toggle">
+                <button class="mode-btn active" onclick="setMode('basic')">Basic</button>
+                <button class="mode-btn" onclick="setMode('scientific')">Scientifique</button>
+            </div>
+            
+            <!-- Fonctions scientifiques -->
+            <div class="scientific-panel" id="scientificPanel" style="display: none;">
+                <div class="scientific-buttons">
+                    <button class="btn sci" onclick="appendFunction('sin')">sin</button>
+                    <button class="btn sci" onclick="appendFunction('cos')">cos</button>
+                    <button class="btn sci" onclick="appendFunction('tan')">tan</button>
+                    <button class="btn sci" onclick="appendFunction('asin')">asin</button>
+                    <button class="btn sci" onclick="appendFunction('acos')">acos</button>
+                    <button class="btn sci" onclick="appendFunction('atan')">atan</button>
+                    <button class="btn sci" onclick="appendFunction('log')">ln</button>
+                    <button class="btn sci" onclick="appendFunction('log10')">log</button>
+                    <button class="btn sci" onclick="appendFunction('sqrt')">√</button>
+                    <button class="btn sci" onclick="appendFunction('cbrt')">∛</button>
+                    <button class="btn sci" onclick="appendFunction('exp')">e^x</button>
+                    <button class="btn sci" onclick="appendFunction('pow')">x^y</button>
+                    <button class="btn sci" onclick="appendConstant('pi')">π</button>
+                    <button class="btn sci" onclick="appendConstant('e')">e</button>
+                    <button class="btn sci" onclick="appendFunction('abs')">|x|</button>
+                    <button class="btn sci" onclick="factorial()">x!</button>
+                </div>
+            </div>
+            
+            <!-- Panneau principal -->
+            <div class="buttons">
+                <button class="btn clear" onclick="clearDisplay()">C</button>
+                <button class="btn clear-entry" onclick="clearEntry()">CE</button>
+                <button class="btn operator" onclick="backspace()">⌫</button>
+                <button class="btn operator" onclick="appendOperator('/')">÷</button>
+                
+                <button class="btn function" onclick="appendFunction('pow')">xʸ</button>
+                <button class="btn number" onclick="appendNumber('7')">7</button>
+                <button class="btn number" onclick="appendNumber('8')">8</button>
+                <button class="btn number" onclick="appendNumber('9')">9</button>
+                <button class="btn operator" onclick="appendOperator('*')">×</button>
+                
+                <button class="btn function" onclick="appendFunction('sqrt')">√</button>
+                <button class="btn number" onclick="appendNumber('4')">4</button>
+                <button class="btn number" onclick="appendNumber('5')">5</button>
+                <button class="btn number" onclick="appendNumber('6')">6</button>
+                <button class="btn operator" onclick="appendOperator('-')">−</button>
+                
+                <button class="btn function" onclick="percentage()">%</button>
+                <button class="btn number" onclick="appendNumber('1')">1</button>
+                <button class="btn number" onclick="appendNumber('2')">2</button>
+                <button class="btn number" onclick="appendNumber('3')">3</button>
+                <button class="btn operator" onclick="appendOperator('+')">+</button>
+                
+                <button class="btn function" onclick="toggleSign()">±</button>
+                <button class="btn number zero" onclick="appendNumber('0')">0</button>
+                <button class="btn number" onclick="appendNumber('.')">.</button>
+                
+                <button class="btn ans" onclick="insertLastResult()">ANS</button>
+                <button class="btn equals" onclick="calculate()">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
