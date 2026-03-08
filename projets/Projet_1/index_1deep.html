@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr"> <!-- Changé en français -->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Robbie Lens Photographie - Photographe professionnel à Paris spécialisé en portraits, paysages et événements. Plus de 5 ans d'expérience. Devis gratuit."><!-- Cette       balise fournit un résumé de votre page aux moteurs de recherche (Google, Bing, etc.); Aide Google à comprendre le contenu de votre page -->
+    <title>Accueil - Robbie Lens Photographie</title>
+    <link rel="stylesheet" href="index_1deep.css"/>
+</head>
+<body> 
+    <header> 
+        <img src="images_1/logo.png" alt="Logo Robbie Lens Photographie"/>
+        <nav>
+            <a href="../index.html" class="active">Accueil</a> <!-- Ajout class active -->
+            <a href="a-proposdeep.html">À propos</a>
+            <a href="Portfoliodeep.html">Portfolio</a>
+        </nav>       
+    </header>
+    
+    <main>
+        <!-- Section HERO -->
+        <section class="dado">
+            <div>
+                <h1>Robbie Lens Photographie</h1> 
+                <p>
+                    Où <strong>professionnalisme</strong> s'allie avec <strong>passion</strong>. 
+                    Depuis plus de 5 ans maintenant, j'exerce mon métier avec la passion qui m'anime : 
+                    capturer l'essence de chaque instant. Je vous propose des services de qualité 
+                    pour vos projets de communication, vos événements, ou vos besoins personnels.  
+                </p>
+                <div class="droite"> <!-- nav remplacé par div -->
+                    <a href="#formulaire" class="cta-button">UN PROJET ? ÉCRIVEZ-MOI !</a>
+                </div>
+            </div>        
+            <img src="images_1/Robbie-Lens..png" alt="Portrait du photographe Robbie Lens" title="En savoir plus sur Robbie Lens"/>
+        </section>
+
+        <!-- Section Derniers Projets -->
+        <section id="container1">
+            <h2>Mon dernier projet</h2>    
+            <div class="gallery-row">
+                <a href="images_1/paysage7.jpg" class="gallery-item">
+                    <img src="images_1/paysage7.jpg" alt="Paysage de montagne au coucher du soleil">
+                </a>
+                <a href="images_1/paysage8.jpg" class="gallery-item">
+                    <img src="images_1/paysage8.jpg" alt="Forêt brumeuse en automne">
+                </a>
+                <a href="images_1/paysage2.jpg" class="gallery-item">
+                    <img src="images_1/paysage2.jpg" alt="Plage tropicale avec palmiers">
+                </a>
+            </div>
+            <div class="gallery-row">
+                <a href="images_1/paysage3.jpg" class="gallery-item">
+                    <img src="images_1/paysage3.jpg" alt="Ville illuminée la nuit">
+                </a>
+                <a href="images_1/paysage6.jpg" class="gallery-item">
+                    <img src="images_1/paysage6.jpg" alt="Champ de lavande en Provence">
+                </a>
+                <a href="images_1/paysage4.jpg" class="gallery-item">
+                    <img src="images_1/paysage4.jpg" alt="Lac de montagne aux eaux cristallines">
+                </a>
+            </div>
+        </section>
+
+        <!-- Section Formulaire -->
+        <section id="formulaire">
+            <h2>Parlons de vos projets</h2>
+            <form method="post" action="traitement-formulaire.php"> <!-- get → post -->
+                <div class="flexement">
+                    <div>
+                        <label for="nom">Nom Complet</label>
+                        <input type="text" name="nom" id="nom" placeholder="Votre nom"  autocomplete="off" required>
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="votre@email.com" required> <!-- type="email" -->
+                    </div>
+                </div>
+                <div class="centre">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" rows="8" cols="70" placeholder="Votre message..." required></textarea>
+                    <button type="submit">Envoyer</button> <!-- reset → submit -->
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <img src="images_1/logo.png" alt="Logo Robbie Lens Photographie"/>
+        <p><small>© Copyright 2025 Samuel PEDROS MARCOS - Développeur Full-Stack & Réseau. Toute reproduction est interdite.</small></p>
+        <div class="social-links">
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+                <img src="images_1/twitter.png" alt="Suivez Robbie Lens sur Twitter" title="Suivez Robbie Lens sur Twitter">
+            </a> 
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                <img src="images_1/instagram.png" alt="Suivez Robbie Lens sur Instagram" title="Suivez Robbie Lens sur Instagram">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
