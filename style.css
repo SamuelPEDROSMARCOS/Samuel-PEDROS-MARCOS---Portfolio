@@ -1158,6 +1158,7 @@ address {
         background: var(--gradient-primary);
         padding: 15px;
         display: flex;
+        justify-content: center;
         align-items: center;
         gap: 10px;
     }
@@ -1165,7 +1166,6 @@ address {
     .mobile-card-header h4 {
         color: var(--text-light);
         font-size: 1rem;
-        text-align: center;
         text-transform: uppercase;
     }
     
@@ -1216,7 +1216,7 @@ address {
     }
     
     .mobile-details summary {
-        color: var(--text-light);
+        color: var(--primary-blue);
         font-weight: 600;
         cursor: pointer;
         padding: 5px;
