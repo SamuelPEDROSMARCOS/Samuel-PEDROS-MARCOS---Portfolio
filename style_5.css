@@ -1,497 +1,1408 @@
 /* ==============================================
-   STYLES GÉNÉRAUX & RÉINITIALISATION
+   VARIABLES GLOBALES (à garder en tête)
    ============================================== */
+:root {
+    --font-size-xs: 0.75rem;     /* 12px */
+    --font-size-sm: 0.875rem;    /* 14px */
+    --font-size-md: 1rem;        /* 16px */
+    --font-size-lg: 1.125rem;    /* 18px */
+    --font-size-xl: 1.25rem;     /* 20px */
+    --font-size-2xl: 1.5rem;     /* 24px */
+    --font-size-3xl: 2rem;       /* 32px */
+    
+    /* Typographie */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --header-height: 140px;
+    --space-md: 1rem;   /* 16px */
+    
+    /* Couleurs principales */
+    --primary-blue: #3B82F6;        /* Variable pour le bleu */
+    --primary-purple: #8B5CF6;      /* Variable pour le violet */
+    --bg-dark: #0F172A;             /* Fond sombre principal */
+    --bg-medium: #1E293B;           /* Fond intermédiaire */
+    --bg-card: rgba(30, 41, 59, 0.5);
+    --bg-card-hover: rgba(30, 41, 59, 0.8);
+    --text-light: #F8FAFC;          /* Texte clair */
+    --text-muted: #94A3B8;          /* Texte grisé */
+    --border-color: #334155;        /* Couleur des bordures */
+    --success: #10b981;
+    
+    /* Dégradés */
+    --gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    --gradient-button: linear-gradient(90deg, #3B82F6, #8B5CF6);
+    
+    /* Ombres */
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    /* Bordures */
+    --radius-full: 50px;
+    
+    /* Transitions */
+    --transition: all 0.3s ease;
+    --transition-base: 0.3s ease;
+}
+
+/* RÉINITIALISATION DE BASE POUR LE HEADER */
+* {
+    margin: 0;                        /* Supprime toutes les marges externes */
+    padding: 0;                       /* Supprime tous les paddings internes */
+    box-sizing: border-box;           /* Inclut padding/bordure dans la largeur */
+}
+
+/* STYLES GÉNÉRAUX */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);   /* Évite que le header cache les ancres */
+}
 
 body {
-    background-color: #0F172A;       /* Fond bleu nuit profond */
-    color: #F8FAFC;                  /* Texte blanc cassé */
-    text-align: justify;             /* Justification du texte */
-    font-size: 1.2em;                /* Taille de police augmentée */
+    font-family: var(--font-family);
+    background-color: var(--bg-dark);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
-/* ==============================================
-   HEADER & NAVIGATION
-   ============================================== */
-
-/* Conteneur flex pour le titre du header */
-#flex_header_title {
-    display: flex;
-    justify-content: space-between;  /* Logo gauche, titre centre, logo droite */
-}
-
-/* Style des images dans le header */
-#flex_header_title img {
-    height: 70px;    /* Hauteur fixe */
-    width: 150px;    /* Largeur fixe */
-}
-
-/* Espacement spécifique pour le lien contact */
-.lien_contact {
-    padding-right: 45px;  /* Décale le lien contact vers la gauche */
-}
-
-/* Style principal du header */
+/* STYLE DU HEADER */
 header {
-    padding-top: 20px;
-    padding-bottom: 7px;
-    background: linear-gradient(#3B82F6, #8B5CF6);  /* Dégradé bleu → violet */
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    padding: 1rem 0;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;   
+    z-index: 100;
+    width: 100%;
 }
 
-/* Navigation horizontale */
-header ul {
-    list-style-type: none;           /* Supprime les puces */
-    display: flex;                    /* Alignement horizontal */
-    justify-content: space-between;   /* Répartition égale */
+/* TITRE PRINCIPAL DU HEADER */
+
+/* Conteneur flex pour le logo et le titre */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
 }
 
-/* Style des liens de navigation */
-header ul a {
-    text-decoration: none;           /* Supprime le soulignement */
-    text-transform: uppercase;       /* Texte en majuscules */
-    color: #94A3B8;                  /* Couleur gris bleuté */
-    transition: color 0.3s ease;     /* Transition douce */
+/* Style des logos */
+.header-content img {
+    display: flex;
+    max-width: 120px;
+    height: auto;
+    object-fit: contain;    /* Garde les proportions sans déformation */
+    transition: var(--transition);
 }
 
-/* Effet au survol des liens */
-header ul a:hover {
-    color: #fff;                  /* Change en bleu électrique */
+/* Effet au survol des logos */
+.header-content img:hover {
+    transform: scale(1.05);     /* Agrandit de 5% */
+    filter: brightness(1.2);    /* Augmente la luminosité de 20% */
 }
 
-/* ==============================================
-   SECTION 1 : PRÉSENTATION (HÉROS)
-   ============================================== */
-
-/* Style commun des titres de toutes les sections */
-.sect1 h1, #sect2 h1, #sect3 h1, #sect4 h1, #sect5 h1, #sect6 h1 {
-    text-align: center;
-    font-size: 1.5em;
+/* Style du titre principal */
+.site-title {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    font-weight: 600;
     text-transform: uppercase;
-    padding: 20px;
-    color: #F8FAFC;
-}
-
-/* Conteneur flex pour la section présentation */
-.one {
-    display: flex;                   /* Mise en page flexible */
-    margin: 0px 150px;               /* Marges horizontales */
-}
-
-/* Image dans la section présentation */
-.one img {
-    width: 300px;                   /* Largeur fixe */
-    height: auto;                   /* Hauteur proportionnelle */
-    margin-right: 50px;             /* Espace à droite de l'image */
-}
-
-/* Style des liens/buttons dans .one */
-.one a {
-    background: linear-gradient(#3B82F6, #8B5CF6);  /* Dégradé bleu → violet */
-    color: #94A3B8;                  /* Texte gris bleuté */
-    border-radius: 50px;             /* Bords arrondis */
-    text-decoration: none;           /* Pas de soulignement */
-    padding: 10px 20px;              /* Espacement interne */
-}
-
-/* Effet au survol des liens .one */
-.one a:hover {
-    background: #8B5CF6;             /* Fond violet */
-    color: #fff;                     /* Texte blanc */
-    border: 2px solid #3B82F6;       /* Bordure bleue */
-}
-
-/* Style spécifique de la section 1 */
-.sect1 {
-    background: linear-gradient(135deg, #0F172A 0%, #1A1B4B 50%, #0F172A 100%);
-    padding: 500px, 100px;           /* ⚠️ ERREUR: virgule au lieu d'espace */
-    padding-bottom: 60px;
-    padding-top: 0px;
-    border-top: 7px solid #1E293B;   /* Bordure supérieure */
-    box-shadow: rgba(0, 0, 0, 0.8);  /* Ombre portée */
-}
-
-/* ==============================================
-   SECTION 2 : FORMATION
-   ============================================== */
-
-#sect2 {
-    background: linear-gradient(135deg, #0F172A 0%, #1A1B4B 50%, #0F172A 100%);
-    padding-bottom: 40px;
-    border-top: 7px solid #334155;   /* Séparation avec section précédente */
-}
-
-/* Style des sous-titres dans sections 2 et 4 */
-#sect2 h4, #sect4 h4 {
-    text-transform: uppercase;       /* Texte en majuscules */
-}
-
-/* ==============================================
-   STYLES DES TABLEAUX (Formation & Compétences)
-   ============================================== */
-
-/* Première ligne des tableaux (en-têtes) */
-table tr:first-child {
-    background: rgba(59, 130, 246, 0.1);  /* Fond bleu très transparent */
-}
-
-/* Cellules des tableaux */
-table td {
-    border: 1px solid #334155;             /* Bordures gris foncé */
-    background: rgba(30, 41, 59, 0.3);     /* Fond semi-transparent */
-}
-
-/* Effet au survol des lignes */
-table tr:hover {
-    background: rgba(59, 130, 246, 0.05);  /* Légère surbrillance bleue */
-}
-
-/* ==============================================
-   SECTION 3 : PROJETS
-   ============================================== */
-
-#sect3 {
-    background: linear-gradient(135deg, #0F172A 0%, #1A1B4B 50%, #0F172A 100%);
-    border-top: 7px solid #334155;   /* Séparation */
-}
-
-/* Centrage des sous-titres projets */
-#sect3 h3 {
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: var(--font-family);
     text-align: center;
 }
 
-/* Style des liens dans la section projets */
-#sect3 a {
-    background: linear-gradient(#3B82F6, #8B5CF6);  /* Dégradé */
-    color: #94A3B8;                  /* Texte gris bleuté */
-    border-radius: 50px;             /* Bords arrondis */
-    text-decoration: none;           /* Pas de soulignement */
-    padding: 10px 20px;              /* Espacement interne */
-}
+/* NAVIGATION */
 
-/* Effet au survol des liens projets */
-#sect3 a:hover {
-    background: #8B5CF6;             /* Fond violet */
-    color: #fff;                     /* Texte blanc */
-    border: 2px solid #3B82F6;       /* Bordure bleue */
-}
-
-/* ==============================================
-   LAYOUT DES PROJETS INDIVIDUELS
-   ============================================== */
-
-/* NOTE: Les classes .two à .eight suivent le même pattern:
-   - Conteneur flex
-   - Division texte/image
-   - Mêmes styles pour images et liens
-*/
-
-/* PROJET 1 : Gestion Hôtelière */
-.two {
-    display: flex;                   /* Layout flexible */
-}
-.two_div {
-    margin-left: 50px;               /* Marge à gauche du contenu */
-    margin-top: 50px;                /* Marge en haut */
-}
-.two_div a {
-    margin-left: 50px;               /* Décale le lien */
-}
-.two img {
-    width: 270px;                    /* Largeur spécifique */
-    height: auto;                    /* Hauteur proportionnelle */
-    padding-bottom: 10px;            /* Espace sous l'image */
-}
-
-/* PROJET 2 : AzerType (JavaScript) */
-.three {
+/* Liste de navigation */
+.nav-menu {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    list-style: none;
 }
-.three_div {
-    margin-left: 50px;
+
+/* Liens de navigation */
+.nav-menu a {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    letter-spacing: 1px;
+    padding: 0.5rem 0;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+/* Effet de soulignement animé */
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;                      /* Collé en bas */
+    left: 50%;                      /* Commence au milieu */
+    transform: translateX(-50%);    /* Décale de 50% vers gauche pour centrer */
+    width: 0;                       /* Largeur 0 (invisible) */
+    height: 2px;
+    background: var(--text-light);  /* Sans background, cet élément est transparent */
+    transition: var(--transition);
+}
+
+/* Animation au survol */
+.nav-menu a:hover {
+    color: var(--text-light);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+
+/* STYLES DES SECTIONS */
+
+.section {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #1A1B4B 50%, var(--bg-dark) 100%);
+    border-top: 4px solid var(--border-color);
+    padding: 50px 0;
+}
+
+/* Conteneur pour centrer le contenu */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Titre de la section */
+.section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    color: var(--text-light);
+    font-family: var(--font-family);
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* SECTION 1 : PRÉSENTATION (ACCUEIL) */
+
+/* Conteneur flex pour la photo et le texte */
+.profile-container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;    /* Aligne naturellement en haut sinon le texte serait étiré en hauteur pour égaler l'image (affreux !) */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Style de la photo de profil - LÉGÈREMENT RÉDUITE */
+.profile-image {
+    width: 280px;    /* Réduite de 300px à 280px */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--primary-blue);
+    transition: var(--transition);
+}
+
+.profile-image:hover {
+    transform: scale(1.02);
+    border-color: var(--primary-purple);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Style du contenu texte */
+.profile-content {
+    flex: 1;    /* Prend tout l'espace restant après l'image sinon Le texte prendrait seulement sa largeur naturelle*/
+}
+
+/* Texte justifié */
+.profile-content p {
+    margin-bottom: 20px;
+    text-align: justify;          /* Texte justifié */
+}
+
+/* Conteneur pour les boutons - CENTRÉ */
+.profile-actions {
+    display: flex;
+    gap: 20px;
     margin-top: 30px;
-}
-.three_div a {
-    margin-left: 110px;              /* Marge plus importante */
-}
-.three img {
-    width: 400px;                    /* Largeur différente des autres */
-    height: auto;
-    padding-bottom: 10px;
+    justify-content: center;      /* Centre les boutons */
 }
 
-/* PROJET 3 : Automatisation Scolaire */
-.four {
-    display: flex;
-}
-.four_div {
-    margin-left: 50px;
-    margin-top: 50px;
-}
-.four_div a {
-    margin-left: 110px;
-}
-.four img {
-    width: 400px;
-    height: auto;
-    padding-bottom: 10px;
-}
-
-/* PROJET 4 : Gestion de Stock */
-.five {
-    display: flex;
-}
-.five_div {
-    margin-left: 50px;
-    margin-top: 40px;
-}
-.five_div a {
-    margin-left: 110px;
-}
-.five img {
-    width: 400px;
-    height: auto;
-    padding-bottom: 10px;
+/* Style des boutons */
+.profile-actions .btn {
+    display: inline-block;    /* Permet aux boutons de rester sur la même ligne (comme inline)et d'accepter width, height, padding, margin (comme block). Ce qui serait impossible sans inline-block car par défaut on a inline qui bloque l'utilisation des width, height, padding, margin */
+    color: var(--text-light);
+    padding: 12px 30px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+    border-color: var(--primary-blue);
 }
 
-/* PROJET 5 : Design CHIPS MANIOC+ */
-.six {
-    display: flex;
-}
-.six_div {
-    margin-left: 50px;
-    margin-top: 30px;
-}
-.six_div a {
-    margin-left: 110px;
-}
-.six img {
-    width: 400px;
-    height: auto;
-    padding-bottom: 10px;
+.profile-actions .btn:hover {
+    background: var(--gradient-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.15);
 }
 
-/* PROJET 6 : (Non spécifié - classe .seven inutilisée?) */
-.seven {
-    display: flex;
-}
-.seven_div {
-    margin-left: 50px;
-    margin-top: 30px;
-}
-.seven_div a {
-    margin-left: 120px;              /* Marge légèrement différente */
-}
-.seven img {
-    width: 400px;
-    height: auto;
-    padding-bottom: 10px;
+/* ACCESSIBILITÉ - Masquer visuellement mais garder pour lecteurs d'écran */
+.sr-only {
+    position: absolute;   /* Sans absolute l'élément prend de la place et avec l'élément est là mais invisible */
+    width: 1px;           /* Tout petit */
+    height: 1px;
+    margin: -1px;         /* Décale l'élément pour qu'il soit hors de l'écran */               
+    overflow: hidden;     /* Cache tout contenu qui dépasserait au cas où le contenu serait plus grand que 1px, on coupe tout */
 }
 
-/* PROJET 7 : Sites Web Responsives */
-.eight {
-    display: flex;
-}
-.eight_div {
-    margin-left: 50px;
-    margin-top: 10px;                /* Marge plus petite */
-}
-.eight_div a {
-    margin-left: 120px;
-}
-/* Conteneurs pour les images de sites web */
-.div1, .div2, .div3 {
-    margin-bottom: 40px;             /* Espace vertical entre les images */
-}
-.eight img {
-    width: 400px;
-    height: auto;
-    padding-bottom: 10px;
+/* TABLEAUX (Formation & Compétences) */
+
+.table-responsive {
+    margin: 30px 0;
 }
 
-/* ==============================================
-   SECTION 4 : COMPÉTENCES
-   ============================================== */
-
-#sect4 {
-    background: linear-gradient(135deg, #0F172A 0%, #1A1B4B 50%, #0F172A 100%);
-    border-top: 7px solid #334155;   /* Séparation */
-    padding: 0px 50px 50px 50px;     /* Padding: haut droite bas gauche */
+.parcours-mobile,
+.competences-mobile {
+    display: none;
 }
 
-/* ==============================================
-   SECTION 5 : EXPÉRIENCE PROFESSIONNELLE
-   ============================================== */
-
-#sect5 {
-    background: linear-gradient(135deg, #0F172A 0%, #1A1B4B 50%, #0F172A 100%);
-    border-top: 7px solid #334155;   /* Séparation */
+.parcours-table, .competences-table {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-collapse: collapse;
+    background: var(--bg-card);
+    min-width: 600px;
 }
 
-/* Image dans la section expérience */
-.sect5_div img {
-    margin-left: 50px;
-    margin-top: 30px;
-    width: 400px;                    /* Largeur fixe */
-    height: 490px;                   /* Hauteur fixe (différente) */
-    padding-bottom: 10px;
+
+.parcours-table th, .competences-table th {
+    width: 40%;
+    background: rgba(59, 130, 246, 0.2);
+    padding: 20px;
+    color: var(--text-light);
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
 }
 
-/* Conteneur flex pour la section expérience */
-.sect5_div {
-    display: flex;
-    justify-content: space-between;  /* Texte à gauche, image à droite */
+.timeline-table th {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+    padding: 20px;
+    text-align: left;
+    text-transform: none;
+}
+
+.parcours-table td,
+.competences-table td {
+    width: 60%; 
+    padding: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.parcours-table tr:hover,
+.competences-table tr:hover {
+    background: rgba(59, 130, 246, 0.1);
+    transition: background var(--transition-base);
+}
+
+.parcours-details,
+.competences-list {
+    list-style: none;
+}
+
+.parcours-details li,
+.competences-list li,
+.sub-list li {
+    margin-bottom: 5px;
+}
+
+.parcours-details strong,
+.competences-list strong {
+    color: var(--text-light);
+}
+
+.sub-list {
+    margin-left: 30px;
+    margin-top: 5px;
+    list-style-type: disc;
+}
+
+.badge-success {
+    display: inline-block;
+    background: var(--success);
+    color: white;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* SECTION 3 : COMPÉTENCES (spécifique) */
+
+#competences .container {
+    max-width: 1200px;
 }
 
 /* ==============================================
-   SECTION 6 : CONTACT & FOOTER
+   PROJETS - STYLES UNIFIÉS
    ============================================== */
-
-#sect6 {
-    border-top: 7px solid #334155;   /* Séparation avec section précédente */
+.projet-card {
+    margin-bottom: 60px;
+    padding: 30px;
+    background: var(--bg-card);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-base);
 }
 
-/* Layout principal du footer */
-.ten {
+.projet-card:hover {
+    background: var(--bg-card-hover);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.section-intro {
+    max-width: 900px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    text-align: center;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.projet-card h3 {
+    text-align: center;
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    color: var(--primary-blue);
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.projet-card h3::before,
+.projet-card h3::after {
+    content: '⚡';
+    margin: 0 10px;
+    opacity: 0.5;
+    font-size: 1.1rem;
+}
+
+.projet-card strong {
+    color: var(--text-light);
+}
+
+.projet-content {
     display: flex;
-    justify-content: space-between;  /* Formulaire gauche, infos droite */
+    gap: 40px;
+    align-items: center;  
 }
 
-/* Section droite du footer */
-.eleven {
-    padding-top: 30px;
-    padding-right: 30px;       /* Décale du formulaire */
+.projet-content.reverse {
+    flex-direction: row-reverse;        /* Pour parfois mettre l'image à gauche */
 }
 
-/* Navigation secondaire dans le footer */
-.eleven nav ul {
-    display: flex;                   /* Navigation horizontale */
-    list-style-type: none;           /* Pas de puces */
-    gap: 20px;                       /* Espace entre les liens */
+.projet-description {
+    flex: 2;        /* Prend 2 parts de l'espace disponible */
+    text-align: justify;
 }
 
-/* Liens de la navigation footer */
-.eleven nav a {
-    color: #94A3B8;                  /* Couleur gris bleuté */
+.projet-description p {
+    margin-bottom: 20px;
 }
 
-/* Style des éléments de liste dans .eleven_div */
-.eleven_div li {
-    color: #94A3B8;                  /* Texte gris bleuté */
-}
-
-/* Effets au survol des liens footer */
-.eleven_network_link a:hover, 
-.eleven_div a:hover, 
-.eleven nav a:hover {
-    color: #3B82F6;                  /* Change en bleu électrique */
-    text-decoration: none; 
-}
-
-/* Layout pour les coordonnées et réseaux */
-.eleven_div {
+.projet-galerie {
     display: flex;
-    justify-content: space-between;  /* Coordonnées à gauche, réseaux à droite */
+    gap: 30px;
 }
 
-/* Liste des réseaux sociaux */
-.eleven_network_link ul {
-    list-style-type: none;           /* Pas de puces */
+.projet-item {
+    max-width: 400px;
+    text-align: center;
+    transition: transform var(--transition-base);
 }
 
-/* Style des liens réseaux et coordonnées */
-.eleven_network_link a, 
-.eleven_div a {
-    text-decoration: none;           /* Pas de soulignement */
-    color: #94A3B8;                  /* Couleur gris bleuté */
+.projet-item:hover, .projet-figure:hover {
+    transform: translateY(-5px);
 }
 
-/* Espacement spécifique pour les liens réseaux */
-.eleven_network_link a {
-    margin-right: 30px;              /* Espace entre les liens */
-}
-
-/* ==============================================
-   FORMULAIRE DE CONTACT
-   ============================================== */
-form{
-    padding-left: 40px;
-}
-
-.field1 {
-    width: 440px;                    /* Largeur fixe */
-    padding: 20px;                   /* Espacement interne */
-    margin-top: 10px;                /* Marge en haut */
-    border: 2px solid #334155;       /* Bordure gris foncé */
-    background: rgba(30, 41, 59, 0.5); /* Fond semi-transparent */
-}
-
-/* Légende du formulaire */
-legend {
-    font-weight: bold;               /* Texte en gras */
-    font-size: 16px;                 /* Taille spécifique */
-}
-
-/* Styles spécifiques pour les inputs */
-.field1 div input {
-    width: 200px;           /* Largeur réduite pour inputs */
-    height: 20px;           /* Hauteur réduite */
-    padding: 5px;
+.projet-item img {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
     margin-bottom: 10px;
-    border-radius: 5px;
-    background: #1E293B;
-    border: 1px solid #334155;
-    color: #F8FAFC;
+    transition: border-color var(--transition-base);
 }
 
-/* Styles spécifiques pour textarea */
-textarea {
-    width: 420px;           /* Largeur complète du fieldset - padding */
-    height: 100px;          /* Hauteur suffisante pour écrire */
+.projet-item img:hover {
+    border-color: #3B82F6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.projet-figure {
+    flex: 1;       /* Prend 1 part de l'espace disponible */
+    border-radius: 8px;
+}
+
+.projet-figure img {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.projet-figure img:hover {
+    transform: scale(1.02);
+    border-color: #3B82F6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.projet-figure figcaption {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn-projet {
+    display: inline-block;
+    padding: 5px 20px;
+    background: var(--gradient-button);
+    color: var(--text-light);
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-projet:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Détails repliables */
+.projet-details {
+    margin: 20px 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-blue);
+}
+
+.projet-details summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--primary-blue);
     padding: 5px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    background: #1E293B;
-    border: 1px solid #334155;
-    color: #F8FAFC;
-    resize: vertical;       /* Permet redimensionnement vertical seulement */
-}
-/* État focus pour les champs */
-.field1 div input:focus,
-textarea:focus {
-    border-color: #3B82F6;           /* Bordure bleue */
-    outline: none;                   /* Supprime l'outline par défaut */
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2); /* Ombre bleue subtile */
+    transition: color var(--transition-base);
 }
 
-/* Effet au survol des champs */
-.field1 div input:hover,
-textarea:hover {
-    border: 3px solid #334155;       /* Bordure plus épaisse */
+.projet-details summary:hover {
+    color: #2563eb;
+}
+
+.projet-details[open] summary {     /* [open] est un sélecteur d'attribut en CSS qui cible spécifiquement les éléments qui ont l'attribut open par défaut comme la balise <details> */
+    margin-bottom: 10px;
+}
+
+.projet-details ul {
+    margin-left: 30px;
+}
+
+.projet-details li {
+    margin-bottom: 5px;
+}
+
+.tech-stack {
+    background: rgba(59, 130, 246, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 4px solid #3B82F6;
+    margin: 20px 0;
+    font-size: 0.9rem;
+} 
+
+/* ==============================================
+   SECTION EXPÉRIENCE PROFESSIONNELLE
+   ============================================== */
+.experience-container {
+    margin: 0 auto;
+}
+
+/* Introduction de l'expérience */
+.experience-intro {
+    font-size: var(--font-size-lg);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Sous-titre "Missions principales" */
+.experience-subtitle {
+    color: var(--text-light);
+    font-size: var(--font-size-xl);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* Contenu texte de l'expérience */
+.experience-content {
+    flex: 1;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+/* Conteneur des catégories de missions */
+.experience-missions {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+/* Image de l'expérience */
+.experience-figure img {
+    flex: 2;
+    width: 100%;
+    margin-bottom: 40px;
+    border: 3px solid var(--primary-blue);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.experience-figure img:hover {
+    transform: scale(1.02);
+    border: 2px solid var(--primary-purple);
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
+}
+
+/* Catégorie de mission individuelle */
+.mission-category {
+    background: rgba(59, 130, 246, 0.05);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-blue);
+    transition: var(--transition);
+}
+
+.mission-category:hover {
+    background: rgba(59, 130, 246, 0.1);
+    transform: translateX(7px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Titre de catégorie */
+.mission-category h4 {
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+}
+
+/* Liste des missions */
+.mission-category ul {
+    list-style: none;
+    padding-left: 5px;
+}
+
+.mission-category li {
+    color: var(--text-muted);
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Puce personnalisée */
+.mission-category li::before {
+    content: "▹";
+    color: var(--primary-purple);
+    position: absolute;
+    left: 0;
+    font-size: 1.1em;
+}
+
+/* Conclusion de l'expérience */
+.experience-conclusion {
+    padding: 25px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 8px;
+    color: var(--text-light);
+    line-height: 1.8;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+.experience-conclusion:hover {
+    background: rgba(59, 130, 246, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ==============================================
+   FOOTER & CONTACT
+   ============================================== */
+footer {
+    border-top: 4px solid var(--border-color);
+    padding: 40px 0 0px 0;
+}
+
+.contact-intro {
+    max-width: 1000px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+}
+
+/* Conteneur principal à 2 colonnes */
+.footer-content {
+    max-width: 1200px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin: 0 auto 50px auto;
+    align-items: center;
+}
+
+/* FORMULAIRE DE CONTACT */
+.contact-form fieldset {
+    border: 2px solid var(--border-color);
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(30, 41, 59, 0.3);
+}
+
+.contact-form legend {
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: var(--font-size-xl);
+    padding: 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ligne du formulaire (2 colonnes) */
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Groupe de champ individuel */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 15px;
+    background: var(--bg-dark);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: var(--font-size-md);
+    font-family: var(--font-family);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group textarea {
+    min-height: 120px;
+}
+
+/* Conteneur du bouton */
+.form-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 /* Bouton d'envoi */
-input[type="submit"] {
-    background: linear-gradient(90deg, #3B82F6, #8B5CF6); /* Dégradé horizontal */
-    color: #F8FAFC;                  /* Texte blanc cassé */
-    padding: 10px;                   /* Espacement interne */
-    font-weight: bold;               /* Texte en gras */
-    text-transform: uppercase;       /* Texte en majuscules */
-    border: none;                    /* Pas de bordure */
-    border-radius: 100px;            /* Bords très arrondis */
+.btn-submit {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+    padding: 12px 30px;         /* Rétréci */
+    border: none;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-/* Effet au survol du bouton */
-input[type="submit"]:hover {
-    background: linear-gradient(90deg, #4D90F8, #9A6EF8); /* Dégradé plus clair */
-    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4); /* Ombre bleue */
+.btn-submit:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Navigation du footer */
+.footer-nav {
+    margin-bottom: 50px;
+}
+
+.footer-nav h3 {
+    color: var(--primary-blue);
+    font-size: var(--font-size-xl);
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    list-style: none;
+}
+
+.footer-nav-list a {
+    color: var(--text-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+    transition: var(--transition);
+}
+
+.footer-nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-blue);
+    transition: var(--transition);
+}
+
+.footer-nav-list a:hover {
+    color: var(--primary-blue);
+}
+
+.footer-nav-list a:hover::after {
+    width: 100%;
+}
+
+/* Section coordonnées et réseaux */
+.footer-contact {
+    display: flex;
+    gap: 120px;
+}
+
+.contact-details,
+.social-links {
+    flex: 1;
+}
+
+.contact-details h3,
+.social-links h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Listes de contact */
+.contact-list,
+.social-list {
+    list-style: none;
+}
+
+.contact-list li,
+.social-list li {
+    margin-bottom: 5px;
+    gap: 8px;
+}
+
+.contact-list a,
+.social-list a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-list a:hover,
+.social-list a:hover {
+    color: var(--primary-blue);
+}
+
+/* Adresse */
+address {
+    font-style: normal;
+}
+
+/* Icônes dans les coordonnées */
+.contact-list span[aria-hidden="true"] {
+    font-size: 1.2em;
+    min-width: 24px;
 }
 
 /* ==============================================
-   COPYRIGHT & MENTIONS
+   COPYRIGHT
+   ============================================== */
+.copyright {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color);
+    background: rgba(2, 6, 23, 0.8);
+}
+
+.copyright p {
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+}
+
+/* ==============================================
+   ACCESSIBILITÉ - Complément pour le footer
+   ============================================== */
+.footer-nav a:focus-visible,        /* Montre à l'utilisateur où il est quand il navigue au clavier; quand il utilise la touche tab */
+.contact-list a:focus-visible,
+.social-list a:focus-visible,
+.btn-submit:focus-visible {
+    outline: 3px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+/* ==============================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
    ============================================== */
 
-.copyright {
-    color: #64748B;                  /* Gris discret */
-    padding: 10px;                   /* Espacement interne */
-    margin-top: 30px;                /* Marge au-dessus */
-    background: rgba(2, 6, 23, 0.8); /* Fond noir bleuté transparent */
+/* ==============================================
+   TABLETTES (max-width: 768px)
+   ============================================== */
+@media screen and (max-width: 768px) {
+    
+    /* HEADER */    
+    .header-content img {
+        max-width: 100px;
+    }
+    
+    .site-title {
+        font-size: 1.2rem;
+    }
+    
+    .nav-menu {
+        gap: 1.5rem;
+    }
+    
+    .nav-menu a {
+        font-size: 0.9rem;
+    }
+    
+    /* SECTIONS */
+    .section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+    
+    /* SECTION ACCUEIL */
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .profile-image {
+        max-width: 70%;
+    }
+    
+    .profile-content p {
+        text-align: justify;  /* Plus lisible sur mobile */
+    }
+    
+    .profile-actions {
+        justify-content: center;
+    }
+    
+    .profile-actions .btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+    
+    /* TABLEAUX */
+    .table-responsive {
+        margin: 20px 0;
+    }
+    
+    .parcours-table th, 
+    .competences-table th {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+    
+    .parcours-table td,
+    .competences-table td {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* PROJETS */
+    .projet-card {
+        padding: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .section-intro {
+        text-align: justify;  /* Plus lisible sur mobile */
+    }
+    
+    .projet-content,
+    .projet-content.reverse {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .projet-galerie {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .projet-item, .projet-figure {
+        max-width: 100%;
+    }
+    
+    .projet-item img, .projet-figure img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .projet-card h3 {
+        font-size: 1rem;
+    }
+    
+    .projet-card h3::before,
+    .projet-card h3::after {
+        font-size: 0.9rem;
+    }
+    
+    .btn-projet {
+        padding: 4px 15px;
+        font-size: 0.8rem;
+    }
+    
+    /* EXPÉRIENCE */
+    .experience-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .experience-missions {
+        width: 100%;
+    }
+    
+    .experience-figure {
+        width: 100%;
+    }
+    
+    .experience-figure img{
+        width: 100%;
+        height: auto;
+    }
+    .mission-category {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .experience-conclusion {
+        padding: 20px;
+    }
+    
+    /* FOOTER */
+    .contact-intro {
+        max-width: 700px;
+        text-align: justify;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .footer-navigation {
+        text-align: center;
+    }
+    
+    .footer-nav-list {
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .footer-contact {
+        gap: 30px;
+    }
+    
+    .contact-details,
+    .social-links {
+        text-align: center;
+    }
+    
+    .contact-list li,
+    .social-list li {
+        justify-content: center;
+    }
+}
+
+/* ==============================================
+   MOBILES (max-width: 480px)
+   ============================================== */
+@media screen and (max-width: 480px) {
+    
+    /* HEADER */
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .header-content img {
+        display: none;
+    }
+    
+    .site-title {
+        font-size: 1rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .nav-menu a {
+        font-size: 0.8rem;
+        padding: 0.3rem 0;
+    }
+    
+    /* SECTIONS */
+    .section {
+        padding: 30px 0;
+    }
+    
+    .section-title {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    /* SECTION ACCUEIL */
+    .profile-container {
+        gap: 20px;
+    }
+    
+    .profile-actions {
+        gap: 10px;
+    }
+    
+    .profile-actions .btn {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
+    
+    /* TABLEAUX -
+    
+    Cacher sur mobile */
+    .parcours-table, 
+    .competences-table {
+        display: none !important;
+    }
+    
+    /* Afficher les cartes mobiles */
+    .parcours-mobile,
+    .competences-mobile {
+        display: block;
+    }
+    
+    /* Style des cartes */
+    .mobile-card {
+        background: var(--bg-card);
+        border: 2px solid var(--border-color);
+        border-radius: 16px;
+        margin-bottom: 25px;
+        overflow: hidden;
+        transition: var(--transition);
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .mobile-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--primary-blue);
+        box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
+    }
+    
+    /* En-tête de carte */
+    .mobile-card-header {
+        background: var(--gradient-primary);
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .mobile-card-header h4 {
+        color: var(--text-light);
+        font-size: 1rem;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    
+    /* Corps de carte */
+    .mobile-card-body {
+        padding: 15px;
+    }
+    
+    /* Ligne d'information */
+    .mobile-card-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 8px 0;
+        border-bottom: 1px dashed var(--border-color);
+    }
+    
+    .mobile-card-row:last-child, .mobile-skills-list li:last-child {
+        border-bottom: none;
+    }
+    
+    .row-label {
+        color: var(--primary-blue);
+        min-width: 100px;
+        font-size: 0.9rem;
+    }
+    
+    .row-value {
+        font-size: 0.9rem;
+    }
+    
+    /* Badge de succès */
+    .badge-success {
+        background: var(--success);
+        color: white;
+        padding: 2px 8px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    
+    /* Détails repliables */
+    .mobile-details {
+        margin-top: 10px;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+    }
+    
+    .mobile-details summary {
+        color: var(--text-light);
+        font-weight: 600;
+        cursor: pointer;
+        padding: 5px;
+    }
+    
+    .mobile-details ul {
+        margin: 10px 0 0 20px;
+        color: var(--text-muted);
+    }
+    
+    .mobile-details li {
+        margin-bottom: 5px;
+    }
+    
+    /* Liste des compétences */
+    .mobile-skills-list {
+        list-style: none;
+    }
+    
+    .mobile-skills-list li {
+        padding: 8px 0;
+        font-size: 0.9rem;
+        border-bottom: 1px dashed var(--border-color);
+    }
+    
+    .mobile-skills-list strong {
+        color: var(--text-light);
+        min-width: 80px;
+    }
+    
+    /* PROJETS */
+    
+    .projet-card {
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .projet-card h3 {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .projet-card h3::before,
+    .projet-card h3::after {
+        display: none;  /* Enlève les éclairs sur mobile */
+    }
+    
+    .projet-description {
+        text-align: justify;
+    }
+    
+    .projet-description p {
+        font-size: 0.9rem;
+    }
+    
+    .tech-stack {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+    .projet-figure {
+        margin-top: -30px;
+    }
+    
+    .projet-details summary {
+        font-size: 0.9rem;
+    }
+    
+    .projet-details ul {
+        margin-left: 15px;
+    }
+    
+    .projet-details li {
+        font-size: 0.85rem;
+    }
+    
+    /* EXPÉRIENCE */
+    .experience-intro {
+        font-size: 1rem;
+    }
+    
+    .experience-subtitle {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .mission-category h4 {
+        font-size: 1rem;
+    }
+    
+    .mission-category li {
+        font-size: 0.85rem;
+    }
+    
+    /* Image de l'expérience */
+    .experience-figure img {
+        margin: -25px 0 20px 0;
+    }
+
+    .experience-conclusion {
+        padding: 15px;
+        font-size: 0.9rem;
+        text-align: justify;
+    }
+    
+    /* FORMULAIRE */
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .contact-intro {
+        margin: 0 13px 30px 13px;
+    }
+    .contact-form {
+        width: 100%;
+    }
+    
+    .contact-form legend {
+        font-size: 1.1rem;
+    }
+    
+    .btn-submit {
+        width: 100%;
+        padding: 12px 20px;
+    }
+    
+    /* FOOTER */
+    .footer-nav h3 {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    
+    .footer-nav-list a {
+        font-size: 0.85rem;
+    }
+    
+    .footer-contact {
+        gap: 0.5px;
+    }
+    
+    .footer-info {
+        margin: 0 10px;
+    }
+    
+    .contact-details h3,
+    .social-links h3 {
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .contact-list li,
+    .social-list li {
+        font-size: 0.85rem;
+    }
+    .copyright {
+        margin-top: -20px;
+    }
+    .copyright p {
+        font-size: 0.7rem;
+    }
+}
+
+/* Pour le fichier script.js */
+.confirmation-message {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 600;
+    animation: slideIn 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
