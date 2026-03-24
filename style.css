@@ -125,7 +125,8 @@ header {
 
 /* Liens de navigation */
 .nav-menu a {
-    color: var(--text-muted);
+    color: var(--text-light);
+    opacity: 0.7;
     font-weight: 600;
     font-size: 1rem;
     font-family: var(--font-family);
@@ -532,7 +533,7 @@ header {
     border-left: 4px solid #3B82F6;
     margin: 20px 0;
     font-size: 0.9rem;
-} 
+} 
 
 /* ==============================================
    SECTION EXPÉRIENCE PROFESSIONNELLE
@@ -829,6 +830,9 @@ footer {
 .social-list li {
     margin-bottom: 5px;
     gap: 8px;
+}
+.social-list li {
+    margin-bottom: 8px;
 }
 
 .contact-list a,
@@ -1314,7 +1318,7 @@ address {
     
     /* Image de l'expérience */
     .experience-figure img {
-        margin: -25px 0 20px 0;
+        margin: -35px 0 20px 0;
     }
 
     .experience-conclusion {
