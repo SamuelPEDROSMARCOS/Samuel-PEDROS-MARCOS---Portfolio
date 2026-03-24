@@ -1,0 +1,889 @@
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1F2039;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    color: #F9F8FF;
+}
+
+/* ===== TYPOGRAPHIE ===== */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #A5B4FC;
+}
+
+h2 {
+    font-size: 2em;
+    color: #F9F8FF;
+}
+
+strong {
+    color: #A5B4FC;
+    font-weight: bold;
+}
+
+/* ===== HEADER & FOOTER ===== */
+header, footer {
+    background-color: white;
+    color: #242424;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav {
+    gap: 20px;
+}
+
+header a, footer a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;  /* ← Transition sur TOUT */
+}
+
+header a:hover {
+    color: #A5B4FC;
+    background-color: rgba(165, 180, 252, 0.12);
+}
+
+/* Page active dans la navigation */
+.active {
+    color: #A5B4FC;
+    border-bottom: 2px solid #A5B4FC;
+}
+
+footer {
+    flex-direction: row;
+    gap: 20px;
+    text-align: center;
+    border-top: 2px solid #1F2039;
+}
+
+footer small {
+    opacity: 0.4;
+    color: #A5B4FC;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #1F2039;
+}
+
+/* ===== SOCIAL LINKS ===== */
+.social-links {
+    display: flex;
+    gap: 40px;
+}
+
+.social-links a {
+    padding: 0;
+    background: none;
+}
+
+.social-links img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* ===== SECTION HERO (ACCUEIL) ===== */
+.dado {
+    padding: 80px;
+    gap: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 1400px;
+}
+
+.dado div {
+    flex: 1;/* Prend 50% de l'espace */
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+.dado img {
+    flex: 1;            /* Prend 50% de l'espace */
+    max-width: 500px;   /* Mais jamais plus de 500px */
+    border-radius: 10px;
+    box-shadow: 5px 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.dado img:hover {
+    transform: scale(1.03);
+    transition: 1s;
+    box-shadow: 10px 10px 50px rgba(0,0,0,0.5);
+}
+
+.dado p {
+    text-align: justify;
+    margin: 30px 0;
+}
+
+/* Bouton CTA (Call To Action) */
+.cta-button {
+    background: linear-gradient(135deg, #8E86B5, #ACAEED);
+    color: black;
+    padding: 15px 30px;
+    border-radius: 50px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    border: 2px solid transparent;  /* Bordure invisible MAIS qui prend de la place */
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(172, 174, 237, 0.2);
+    border-color: white;
+    color: white;
+}
+
+/* ===== SECTION GALERIE (ACCUEIL) ===== */
+#container1 {
+    background-color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#container1 h2 {
+    color: black;
+    margin-bottom: 40px;
+    font-size: 2.2em;
+}
+
+.gallery-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.gallery-item {
+    display: block;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+.gallery-item img {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;   /* Remplit sans déformer l'image */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* ===== FORMULAIRE (ACCUEIL) ===== */
+#formulaire {
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;     /* ← Centre horizontalement; C'est la technique classique pour centrer un élément block  */
+}
+
+#formulaire h2 {
+    color: #A5B4FC;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2em;
+}
+
+form {
+    background: rgba(255,255,255,0.05);
+    padding: 50px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);  /* ← Flou sur l'arrière-plan */
+}
+
+.flexement {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.flexement > div {
+    flex: 1 1 300px;
+}
+/* C'est la version raccourcie de :
+flex-grow: 1;     Peut s'agrandir 
+flex-shrink: 1;   Peut rétrécir 
+flex-basis: 300px;  Taille de base = 300px 
+même chose que max-width*/
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #F9F8FF;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #8E86B5;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #A5B4FC;
+    box-shadow: 0 0 15px rgba(165, 180, 252, 0.3);
+    background: rgba(255,255,255,0.15);
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgba(255,255,255,0.5);
+    font-style: italic;
+}
+
+.centre {
+    text-align: center;
+}
+
+button {
+    background: linear-gradient(135deg, #8E86B5, #ACAEED);
+    color: black;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 30px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(172, 174, 237, 0.2);
+    border-color: white;
+    color: white;
+}
+
+/* ===== PAGE À PROPOS - PRÉSENTATION ===== */
+
+/* Titre de page */
+.div {
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.div h1 {
+    font-size: 2.4em;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.div h1::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #8E86B5, #ACAEED);   /* Sans background, cet élément est transparent */
+    border-radius: 2px;
+}
+
+.div h2 {
+    margin-top: 20px;
+    color: #A5B4FC;
+}
+
+/* Carte de présentation */
+.presentation-card {
+    border-bottom: 1px solid #8E86B5;
+    border-right: 1px solid #8E86B5;
+    border-radius: 0 20px 20px 0;
+    text-align: justify;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px;
+    margin-bottom: 40px;
+    border-left: 4px solid #A5B4FC;
+}
+
+/* Liste des services */
+.services-list {
+    margin: 10px;
+    padding-left: 30px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+}
+
+.services-list li {
+    margin: 10px 0;
+    color: #F9F8FF;
+    background: rgba(165, 180, 252, 0.07);
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #8E86B5;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.services-list li:hover {
+    background: rgba(165, 180, 252, 0.14);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(165, 180, 252, 0.1);
+}
+
+/* Container du CTA */
+.cta-container, .cta-container2 {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Section Tarifs */
+#tarifs-section {
+    padding: 80px 20px;
+    background: rgba(255, 255, 255, 0.01);
+}
+
+#tarifs-section h2 {
+    text-align: center;
+    color: #A5B4FC;
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    position: relative;  /*à cause du after en bas*/
+}
+
+#tarifs-section h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #8E86B5, #ACAEED);
+    margin: 30px auto 0;
+    border-radius: 3px;
+}
+
+/* Conteneur responsive pour le tableau */
+.table-container {
+    overflow-x: auto;
+    margin: 0 auto;
+    max-width: 1000px;
+    margin-bottom: 80px;
+}
+
+/* Tableau des tarifs */
+.tarifs-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    min-width: 600px;
+}
+
+.tarifs-table th {
+    background: linear-gradient(135deg, #8E86B5, #ACAEED);
+    color: black;
+    padding: 20px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tarifs-table td {
+    padding: 20px;
+    border: 1px solid #8E86B5;
+    color: #F9F8FF;
+    text-align: center;
+}
+
+.tarifs-table tr {
+    transition: background 0.3s ease;
+}
+
+.tarifs-table tr:hover {
+    background: rgba(165, 180, 252, 0.1);
+}
+
+.cta-container2 {
+    margin: 30px 0 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Version mobile des tarifs (cachée par défaut) */
+.tarifs-mobile {
+    display: none;
+}
+
+/* ===== PAGE PORTFOLIO ===== */
+
+.page-title {
+    margin: 30px 0 50px 70px;
+    font-size: 2.4em;
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    margin: 10px 0px;
+    background: linear-gradient(90deg, #8E86B5, #ACAEED);
+    border-radius: 2px;
+}
+
+/* Conteneur principal du portfolio */
+#container2 {
+    background-color: #fefeff;
+    padding: 10px 80px 30px 80px;
+}
+
+.section-subtitle {
+    color: black;
+    font-size: 2em;
+    text-align: center;
+    margin: 10px 0 30px 0;
+}
+
+/* Grilles d'images */
+.paysages,
+.portraits {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.paysages {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 300px);
+}
+
+.portraits {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 300px);
+}
+
+/* Éléments du portfolio */
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover {
+    box-shadow: 0 15px 30px rgba(165, 180, 252, 0.3);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Overlay de survol */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);  /* Fond semi-transparent */
+    color: white;
+    
+    /* Centrage du texte */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Style du texte */
+    font-size: 1.3em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    
+    /* Animation */
+    opacity: 0;                      /* Invisible au départ */
+    backdrop-filter: blur(2px);      /* Effet verre dépoli */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1;   /* Apparition au survol */
+}
+
+/* Une autre manièere de gérer le survol mais avec les animations; du CSS avancé */
+
+/*Animation overlay
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.portfolio-item:hover .overlay {
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+Animations de chargement
+.portfolio-item {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+ Délais d'animation pour chaque image 
+.paysages .portfolio-item:nth-child(1) { animation-delay: 0.1s; }
+.paysages .portfolio-item:nth-child(2) { animation-delay: 0.2s; }
+.paysages .portfolio-item:nth-child(3) { animation-delay: 0.3s; }
+.paysages .portfolio-item:nth-child(4) { animation-delay: 0.4s; }
+.paysages .portfolio-item:nth-child(5) { animation-delay: 0.5s; }
+.paysages .portfolio-item:nth-child(6) { animation-delay: 0.6s; }
+.paysages .portfolio-item:nth-child(7) { animation-delay: 0.7s; }
+.paysages .portfolio-item:nth-child(8) { animation-delay: 0.8s; }
+.paysages .portfolio-item:nth-child(9) { animation-delay: 0.9s; }
+
+.portraits .portfolio-item:nth-child(1) { animation-delay: 0.1s; }
+.portraits .portfolio-item:nth-child(2) { animation-delay: 0.2s; }
+.portraits .portfolio-item:nth-child(3) { animation-delay: 0.3s; }
+.portraits .portfolio-item:nth-child(4) { animation-delay: 0.4s; }
+.portraits .portfolio-item:nth-child(5) { animation-delay: 0.5s; }
+.portraits .portfolio-item::nth-child(6) { animation-delay: 0.6s; }*/
+
+/* ===== Pour IPAD ===== */
+@media screen and (max-width: 768px) {
+    
+    /* ===== PAGE ACCEUIL ===== */
+    
+    header, footer {
+        padding: 20px 30px;
+    }
+    
+    header nav {
+        gap: 0px;
+    }
+    
+    /* Hero Section */
+    .dado {
+        flex-direction: column;
+        padding: 40px 20px 0px 20px;
+        text-align: center;
+    }
+    
+    .dado img {
+        order: -1;
+        max-width: 100%;
+    }
+    
+    .dado div {
+        padding-top: 30px;
+    }
+    
+    .droite {
+        text-align: center;
+    }
+    
+    /* Galerie Accueil */
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+    }
+    
+    /* Formulaire */
+    .flexement {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .flexement > div {
+        flex-basis: 0px;
+    }
+    
+    form {
+        padding: 30px 20px;
+    }
+    
+    .centre textarea,
+    #formulaire form input {
+        width: 100%;
+    }
+    
+    /* ===== PAGE À PROPOS ===== */
+
+    /* Titre de la page */
+    .div {
+        margin: 10px auto;
+    }
+    
+    .div h1 {
+        margin: 50px 0px 40px 30px;
+    }
+    
+    /* Pour les tarifs */
+    #tarifs-section {
+        padding: 50px 20px;
+    }
+
+    /* Disparution - Apparution des boutons */
+    .cta-container {
+        display: none;
+    }
+    
+    .cta-container2 {
+        display: flex;
+    }
+    
+    /* Ajustements pour la présentation */
+    .presentation-card {
+        margin-bottom: 0px;
+        padding: 25px;
+    }
+    
+    .services-list {
+        grid-template-columns: 1fr;
+    }
+ 
+    /* ===== PAGE PORTFOLIO ===== */
+
+    #container2 {
+        padding: 30px 20px;
+    }
+}
+
+/* ===== Pour MOBILES ===== */
+@media screen and (max-width: 480px) {
+        
+    /* ===== PAGE ACCEUIL ===== */
+    
+    /* Header & Navigation */
+    h1 {
+        font-size: 2em;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    header {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    header nav {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    /* Hero Section */
+    .dado{
+        gap: 0px;
+    }
+
+    .dado div {
+        padding-top: 10px;
+        padding-bottom: 30px;
+    }
+
+    .cta-button {
+        font-size: 1em;
+        font-weight: normal;
+        padding: 12px 20px;
+    }
+    
+     /* Cache le tableau */
+    .table-container {
+        display: none;
+    }
+    
+    /* Footer */
+    footer {
+        flex-direction: column;
+    }
+    
+    /* ===== PAGE À PROPOS ===== */
+
+    /* Titre de la page */
+    .div h1 {
+        margin: 30px 0px 20px 20px;
+        font-size: 1.4em;
+    }
+    
+    .div h1::after {
+        width: 60px;
+        height: 3px;
+    }
+    
+    /* Pour les tarifs */
+    #tarifs-section {
+        padding: 20px;
+    }
+    
+    #tarifs-section h2 {
+        margin-bottom: 40px;
+    }
+    
+    #tarifs-section h2::after {
+        margin: 10px auto 0;
+    }
+    
+    .presentation-card {
+        padding: 20px;
+    }
+    
+    .cta-container2 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    /* Affiche la version carte */
+    .tarifs-mobile {
+        display: block;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .tarif-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid #8E86B5;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .tarif-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(165, 180, 252, 0.2);
+    }
+    
+    .tarif-card h3 {
+        color: #A5B4FC;
+        font-size: 1.3em;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #8E86B5;
+    }
+    
+    .tarif-quantite {
+        color: #F9F8FF;
+        font-size: 1.1em;
+        opacity: 0.9;
+    }
+    
+    .tarif-prix {
+        color: #A5B4FC;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    
+    /* ===== PAGE PORTFOLIO ===== */
+
+    /* Titre de la page */
+    .page-title {
+        margin: 30px 0px 30px 20px;
+        font-size: 1.4em;
+    }
+    
+    .page-title::after {
+        width: 60px;
+        height: 3px;
+    }
+    
+    #container2 {
+        padding: 10px 20px;
+    }
+    
+    .section-subtitle {
+        text-align: center;
+        font-size: 1.8em;
+        border-left: none;
+        padding-left: 0;
+    }
+    
+    .paysages {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(9, 300px);
+    }
+    
+    .portraits {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 300px);
+    }
+    .paysages,
+    .portraits {
+        gap: 15px;
+    }
+    
+    .portfolio-item {
+        max-width: 500px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+    .overlay {
+        font-size: 1.1em;
+    }
+
+}

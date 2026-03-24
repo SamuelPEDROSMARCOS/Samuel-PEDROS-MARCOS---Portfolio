@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Robbie Lens : galerie de portraits et paysages. Découvrez mon travail photographique à Paris et en Île-de-France.">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio - Robbie Lens Photographie</title>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Logo Robbie Lens Photographie">
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="a-propos.html">À propos</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Titre de la page -->
+        <section>
+            <h1 class="page-title">Portfolio</h1>
+        </section>
+
+        <!-- Section Paysages -->
+        <section id="container2">
+            <h2 class="section-subtitle">Paysages</h2>
+            <!-- Section Paysages -->
+            <div class="paysages">
+                <!-- Image 1 -->
+                <a href="images/paysage1.jpg" class="portfolio-item" target="_blank"><!-- target="_blank" ouvre le lien dans un nouvel onglet -->
+                    <img src="images/paysage1.jpg" alt="Paysage de montagne" loading="lazy"><!-- lazy loading permet aux images de se charger seulement quand l'utilisateur les voit -->
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                
+                
+                <!-- Image 2 -->
+                <a href="images/paysage2.jpg" class="portfolio-item" target="_blank">
+                    <img src="images/paysage2.jpg" alt="Lac de montagne" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                
+                <!-- Image 3 -->
+                <a href="images/paysage3.jpg" class="portfolio-item" target="_blank">
+                    <img src="images/paysage3.jpg" alt="Forêt en automne" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                
+                <!-- Image 4 -->
+                <a href="images/paysage4.jpg" class="portfolio-item" target="_blank">
+                    <img src="images/paysage4.jpg" alt="Coucher de soleil" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                
+                <!-- Image 5 -->
+                <a href="images/paysage5.jpg" class="portfolio-item" target="_blank">
+                    <img src="images/paysage5.jpg" alt="Plage tropicale" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                
+                <!-- Image 6 -->
+                <a href="images/paysage6.jpg" class="portfolio-item" target="_blank">
+                    <img src="images/paysage6.jpg" alt="Champ de lavande" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                
+                <!-- Image 7 -->
+                <a href="images/paysage7.jpg" class="portfolio-item" target="_blank">
+                    <img src="images/paysage7.jpg" alt="Ville illuminée" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                
+                <!-- Image 8 -->
+                <a href="images/paysage8.jpg" class="portfolio-item" target="_blank">
+                    <img src="images/paysage8.jpg" alt="Rivière en forêt" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                
+                <!-- Image 9 -->
+                <a href="images/paysage9.jpg" class="portfolio-item" target="_blank">
+                    <img src="images/paysage9.jpg" alt="Montagne enneigée" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+            </div>
+            <!-- <div class="paysages">
+                Utilisation d'une boucle PHP pour générer les images 
+                <?php for($i = 1; $i <= 9; $i++): ?>
+                <a href="images/paysage<?= $i ?>.jpg" 
+                   class="portfolio-item" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   title="Voir la photo en grand">
+                    <img src="images/paysage<?= $i ?>.jpg" 
+                         alt="Photographie de paysage <?= $i ?> par Robbie Lens"
+                         loading="lazy"> <!-- lazy loading pour performance
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                <?php endfor; ?>
+            </div>
+
+            <!-- Version statique si pas de PHP -->
+            <!--
+            <div class="paysages">
+                <a href="images/paysage1.jpg" class="portfolio-item" target="_blank" rel="noopener" title="Voir la photo en grand">
+                    <img src="images/paysage1.jpg" alt="Paysage de montagne au coucher du soleil" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                ... (etc pour les 9 images)
+            </div>
+            -->
+            <!-- Section Portraits -->
+            <h2 class="section-subtitle">Portraits</h2>
+            <div class="portraits">
+                <!-- Portrait 1 -->
+                <a href="images/portrait1.jpg" class="portfolio-item" target="_blank" rel="noopener noreferrer" title="Voir le portrait 1 en grand">
+                    <img src="images/portrait1.jpg" alt="Portrait élégant en noir et blanc" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                
+                <!-- Portrait 2 -->
+                <a href="images/portrait2.jpg" class="portfolio-item" target="_blank" rel="noopener noreferrer" title="Voir le portrait 2 en grand">
+                    <img src="images/portrait2.jpg" alt="Portrait artistique en extérieur" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                
+                <!-- Portrait 3 -->
+                <a href="images/portrait3.jpg" class="portfolio-item" target="_blank" rel="noopener noreferrer" title="Voir le portrait 3 en grand">
+                    <img src="images/portrait3.jpg" alt="Portrait studio éclairage professionnel" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                
+                <!-- Portrait 4 -->
+                <a href="images/portrait4.jpg" class="portfolio-item" target="_blank" rel="noopener noreferrer" title="Voir le portrait 4 en grand">
+                    <img src="images/portrait4.jpg" alt="Portrait urbain style contemporain" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                
+                <!-- Portrait 5 -->
+                <a href="images/portrait5.jpg" class="portfolio-item" target="_blank" rel="noopener noreferrer" title="Voir le portrait 5 en grand">
+                    <img src="images/portrait5.jpg" alt="Portrait nature lumière naturelle" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                
+                <!-- Portrait 6 -->
+                <a href="images/portrait6.jpg" class="portfolio-item" target="_blank" rel="noopener noreferrer" title="Voir le portrait 6 en grand">
+                    <img src="images/portrait6.jpg" alt="Portrait artistique couleur" loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+            </div>
+            
+            <!-- <h2 class="black section-subtitle">Portraits</h2>
+            <div class="portraits">
+                <?php for($i = 1; $i <= 6; $i++): ?>
+                <a href="images/portrait<?= $i ?>.jpg" 
+                   class="portfolio-item" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   title="Voir la photo en grand">
+                    <img src="images/portrait<?= $i ?>.jpg" 
+                         alt="Portrait <?= $i ?> par Robbie Lens - Photographie professionnelle"
+                         loading="lazy">
+                    <span class="overlay">Voir la photo</span>
+                </a>
+                <?php endfor; ?>
+            </div>-->
+            
+        </section>
+    </main>
+
+    <footer>
+        <img src="images/logo.png" alt="Logo Robbie Lens Photographie">
+        <p>
+            <small>
+                © Copyright 2025 Samuel PEDROS MARCOS - Développeur Full-Stack & Réseau. 
+                Toute reproduction est interdite.
+            </small>
+        </p>
+        <div class="social-links">
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+                <img src="images/twitter.png" alt="Suivez Robbie Lens sur Twitter">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                <img src="images/instagram.png" alt="Suivez Robbie Lens sur Instagram">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
